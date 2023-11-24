@@ -12,8 +12,11 @@
 		{{nom|upper}}
 	</h1>
 
+	{# Afin d'utiliser dump dans twig il faut installer debug-bundle :
+	composer require --dev symfony/debug-bundle #}
+	{# {% dump(users)%} #}
 	{% if users %}
-	
+
 		{% for user in users %}
 			<ul>
 				<li>
@@ -29,14 +32,12 @@
 		{% endfor %}
 
 	{% else %}
-		<p>Aucun user :'(</p>
+		<p>
+			Aucun user :'(
+		</p>
 
 	{% endif %}
 
-
-	<a href="{{ path('app_lucky_number') }}">
-		Lucky Number
-	</a>
 
 
 {% endblock %}
