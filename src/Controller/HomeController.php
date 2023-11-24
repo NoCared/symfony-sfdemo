@@ -30,6 +30,7 @@ class HomeController extends AbstractController
     #[Route('/', name: 'app_home')]
     public function index(): Response
     {
+        // $this->users = [];
         return $this->render('home/index.html.twig', [
             'titre' => 'Titre : Demo Symfony',
             'nom' => 'Paulo Biscotto',

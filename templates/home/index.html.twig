@@ -8,19 +8,35 @@
 
 	{# On peut ajouter des filtres avec |    -> Ici on met le nom en majuscules #}
 	<h1>
-		Welcome {{nom|upper}}
+		Welcome
+		{{nom|upper}}
 	</h1>
 
-	{% for user in users %}
-		<ul>
-			<li>{{user.nom}}</li>
-			<li>{{user.email}}</li>
-			<li>{{user.age}}</li>
-		</ul>
-	{% endfor %}
+	{% if users %}
+	
+		{% for user in users %}
+			<ul>
+				<li>
+					{{user.nom}}
+				</li>
+				<li>
+					{{user.email}}
+				</li>
+				<li>
+					{{user.age}}
+				</li>
+			</ul>
+		{% endfor %}
+
+	{% else %}
+		<p>Aucun user :'(</p>
+
+	{% endif %}
 
 
-	<a href="{{ path('app_lucky_number') }}">Lucky Number</a>
+	<a href="{{ path('app_lucky_number') }}">
+		Lucky Number
+	</a>
 
 
 {% endblock %}
