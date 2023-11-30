@@ -1,3 +1,10 @@
 *{
     list-style: none;
 }
+nav>ul{
+    display: flex;
+    justify-content: space-evenly;
+}
+nav>ul>li{
+    margin: 1rem;
+}
