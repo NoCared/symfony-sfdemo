@@ -11,7 +11,8 @@
                 <th>Id</th>
                 <th>Nom</th>
                 <th>Description</th>
-                <th>actions</th>
+                <th>Lieux</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -20,6 +21,7 @@
                 <td>{{ formation.id }}</td>
                 <td>{{ formation.nom }}</td>
                 <td>{{ formation.description }}</td>
+                <td>{{ formation.lieux }}</td>
                 <td>
                     <a href="{{ path('app_formation_show', {'id': formation.id}) }}">show</a>
                     <a href="{{ path('app_formation_edit', {'id': formation.id}) }}">edit</a>
