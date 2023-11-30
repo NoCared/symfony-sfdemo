@@ -20,6 +20,9 @@ class Formation
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $lieux = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -45,6 +48,18 @@ class Formation
     public function setDescription(string $description): static
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getLieux(): ?string
+    {
+        return $this->lieux;
+    }
+
+    public function setLieux(string $lieux): static
+    {
+        $this->lieux = $lieux;
 
         return $this;
     }
