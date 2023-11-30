@@ -1,34 +1,41 @@
 {% extends 'base.html.twig' %}
+{% block stylesheets %}
 
-{% block title %}
-	{{titre}}
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/darkly/bootstrap.min.css" integrity="sha384-nNK9n28pDUDDgIiIqZ/MiyO3F4/9vsMtReZK39klb/MtkZI3/LtjSjlmyVPS3KdN" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+
+	<link href="{{asset('css/style.css')}}" rel="stylesheet">
+
 {% endblock %}
 
 {% block body %}
 
-	{# On peut ajouter des filtres avec |    -> Ici on met le nom en majuscules #}
-	<h1>
-		Welcome
-		{{nom|upper}}
-	</h1>
+	{# On peut ajouter des filtres avec |    -> Ici on met le nom en majuscules
+				<h1>
+					Welcome
+					{{nom|upper}}
+				</h1> #}
 
 	{# Afin d'utiliser dump dans twig il faut installer debug-bundle :
-	composer require --dev symfony/debug-bundle #}
+				composer require --dev symfony/debug-bundle #}
 	{# {% dump(users)%} #}
-	{% if users %}
+		{% if formations %}
 
-		{% for user in users %}
-			<ul>
-				<li>
-					{{user.nom}}
-				</li>
-				<li>
-					{{user.email}}
-				</li>
-				<li>
-					{{user.age}}
-				</li>
-			</ul>
+			{% for formation in formations %}
+				<div class="card text-white bg-primary mb-3" style="max-width: 20rem;"> <div class="card-header">
+					
+						{{formation.nom}}
+				</div>
+				<div class="card-body">
+					<p class="card-text">
+						{{formation.description}}
+					</p>
+					<p>
+						Où ? {{formation.lieux}}
+					</p>
+					<a href="{{path('app_index_show',{id:formation.id})}}" class="btn btn-primary">En savoir plus</a>
+				</div>
+			</div>
 		{% endfor %}
 
 	{% else %}
@@ -37,7 +44,6 @@
 		</p>
 
 	{% endif %}
-
 
 
 {% endblock %}

@@ -2,39 +2,27 @@
 
 namespace App\Controller;
 
+use App\Entity\Formation;
+use App\Repository\FormationRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
-    public $users = [
-        [
-        'nom' => 'Paulo Biscotto',
-        'email' => 'pauloleboss@gmail.com',
-        'age' => 23
-        ],
-        [
-        'nom' => 'Bla blo',
-        'email' => 'blabla@free.fr',
-        'age' => 54
-        ],
-        [
-        'nom' => 'Fee Lation',
-        'email' => 'negiubrengeniugrb@zerjhzerjerjutrezrztjrj.fr',
-        'age' => 99
-        ]
-    ];
-
 
     #[Route('/', name: 'app_home')]
-    public function index(): Response
+    public function index(FormationRepository $formationRepository): Response
     {
-        // $this->users = [];
         return $this->render('home/index.html.twig', [
-            'titre' => 'Titre : Demo Symfony',
-            'nom' => 'Paulo Biscotto',
-            'users' => $this->users
+            'formations' => $formationRepository->findAll(),
+        ]);
+    }
+    #[Route('/{id}', name: 'app_index_show', methods: ['GET'])]
+    public function show(Formation $formation): Response
+    {
+        return $this->render('home/show.html.twig', [
+            'formation' => $formation,
         ]);
     }
 }
