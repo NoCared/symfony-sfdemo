@@ -28,7 +28,7 @@
 				</div>
 				<div class="card-body">
 					<p class="card-text">
-						{{formation.description}}
+						{{formation.description|slice(0, 20) }}(...)
 					</p>
 					<p>
 						Où ? {{formation.lieux}}
