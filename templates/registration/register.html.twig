@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <h1>Register</h1>
+
+    {{ form_errors(registrationForm) }}
+
+    {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.email,{
+        label: 'Email'}) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Mot de passe'
+        }) }}
+        {{ form_row(registrationForm.agreeTerms, {
+            label: '<a href="' ~ path("cgu") ~ '"target="blank">' ~ 'Accepter les CGUs' ~ '</a>',
+            label_html:true
+        }) }}
+        {{ form_row(registrationForm.submit, {
+            label: "S'inscrire"
+        }) }}
+
+    {{ form_end(registrationForm) }}
+{% endblock %}
