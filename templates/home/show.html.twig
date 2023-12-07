@@ -1,13 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Formation{% endblock %}
+{% block title %}Formation
+{% endblock %}
 
 {% block body %}
 
-    <section>
-    <h2>{{ formation.nom }}</h2>
-    <p>{{ formation.description }}</p>
-    <p>{{ formation.lieux }}</p>
-    </section>
+	<section>
+		<h2>{{ formation.nom }}</h2>
+		<p>{{ formation.description }}</p>
+		<p>{{ formation.lieux }}</p>
+	</section>
 
 {% endblock %}
