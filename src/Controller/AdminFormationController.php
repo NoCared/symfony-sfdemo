@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 #[Route('/formation')]
-class FormationController extends AbstractController
+class AdminFormationController extends AbstractController
 {
     #[Route('/', name: 'app_formation_index', methods: ['GET'])]
     public function index(FormationRepository $formationRepository): Response

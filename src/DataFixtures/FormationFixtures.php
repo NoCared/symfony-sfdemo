@@ -13,7 +13,7 @@ class FormationFixtures extends Fixture
     {
         $faker = Factory::create();
         
-        for ($i = 0; $i < 50; $i++) :
+        for ($i = 0; $i < 5; $i++) :
             $formation = new Formation();
 
             $formation->setNom($faker->words(3, true));
