@@ -21,8 +21,8 @@ class DashboardController extends AbstractDashboardController
 
         // Option 1. You can make your dashboard redirect to some common page of your backend
         //
-        $adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
-        return $this->redirect($adminUrlGenerator->setController(CategorieCrudController::class)->generateUrl());
+        //$adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
+        //return $this->redirect($adminUrlGenerator->setController(FormationCrudController::class)->generateUrl());
 
         // Option 2. You can make your dashboard redirect to different pages depending on the user
         //
@@ -34,6 +34,8 @@ class DashboardController extends AbstractDashboardController
         // (tip: it's easier if your template extends from @EasyAdmin/page/content.html.twig)
         //
         // return $this->render('some/path/my-dashboard.html.twig');
+    
+            return $this->render('admin/dashboard.html.twig');
     }
 
     public function configureDashboard(): Dashboard
@@ -44,10 +46,15 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linkToDashboard('Dashboard', 'fa fa-dashboard');
-        yield MenuItem::linkToRoute('Retour au site', 'fas fa-home', 'app_home');
-        yield MenuItem::linkToCrud('Admin Categorie', 'fas fa-list', Categorie::class);
-        yield MenuItem::linkToCrud('Admin Formation', 'fas fa-list', Formation::class);
-        yield MenuItem::linkToCrud('Admin User', 'fas fa-list', User::class);
+        return[
+            MenuItem::linkToDashboard('Dashboard', 'fa fa-dashboard'),
+            MenuItem::linkToRoute('Retour au site', 'fas fa-home', 'app_home'),
+            MenuItem::section('Categories'),
+            MenuItem::linkToCrud('Categorie', 'fas fa-list', Categorie::class),
+            MenuItem::section('Formations'),
+            MenuItem::linkToCrud('Formation', 'fas fa-list', Formation::class)->setPermission('ROLE_EDITOR'),
+            MenuItem::section('Users'),
+            MenuItem::linkToCrud('User', 'fas fa-list', User::class)
+        ];
     }
 }
