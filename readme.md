@@ -16,3 +16,9 @@ Création d'un **controller** avec **maker-bundle** : `symfony console make:cont
 - Démarrer le server symfony en tache de fond : `symfony.exe server:start -d`
 - Arreter le server symfony : `symfony.exe server:stop`
 - Lister les servers symfony lancés : `symfony.exe server:list`
+
+
+composer install
+symfony console doctrine:database:create
+symfony console doctrine:migration:make
+symfony console doctrine:fixtures:load
