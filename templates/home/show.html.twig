@@ -8,7 +8,12 @@
 	<section>
 		<h2>{{ formation.nom }}</h2>
 		<p>{{ formation.description }}</p>
-		<p>{{ formation.lieux }}</p>
+		<p>{{ formation.lieux }}
+        <p> Catégories :
+                {% for curCategorie in formation.categorie %}
+                    {{  curCategorie }}
+                {% endfor %}
+		</p>
 	</section>
 
 {% endblock %}

@@ -19,6 +19,18 @@
                 <th>Description</th>
                 <td>{{ formation.description }}</td>
             </tr>
+            <tr>
+                <th>Lieux</th>
+                <td>{{ formation.lieux }}</td>
+            </tr>
+            <tr>
+                <th>Catégories</th>
+                <td>
+                {% for curCategorie in formation.categorie %}
+                    {{  curCategorie }}
+                {% endfor %}
+                </td>
+            </tr>
         </tbody>
     </table>
 

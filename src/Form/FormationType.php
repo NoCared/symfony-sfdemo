@@ -15,6 +15,7 @@ class FormationType extends AbstractType
             ->add('nom')
             ->add('description')
             ->add('lieux')
+            ->add('categorie')
         ;
     }
 

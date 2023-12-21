@@ -52,7 +52,7 @@ class DashboardController extends AbstractDashboardController
             MenuItem::section('Categories'),
             MenuItem::linkToCrud('Categorie', 'fas fa-list', Categorie::class),
             MenuItem::section('Formations'),
-            MenuItem::linkToCrud('Formation', 'fas fa-list', Formation::class)->setPermission('ROLE_EDITOR'),
+            MenuItem::linkToCrud('Formation', 'fas fa-list', Formation::class),
             MenuItem::section('Users'),
             MenuItem::linkToCrud('User', 'fas fa-list', User::class)
         ];
